@@ -1,0 +1,12 @@
+version: '3'
+services:
+  web:
+    image: nginx:1.18
+    network_mode: "host"
+    restart: always
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - "80:80"
+      - "443:443"
+      - "8888:8888"

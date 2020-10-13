@@ -1,0 +1,27 @@
+version: '3'
+services:
+  mock:
+    container_name: mock
+    image: ciena/grpc-mock
+    command: /proto/mock.js
+    volumes:
+      - ./example:/proto
+    ports:
+      - "50051:50051"
+    environment:
+      - GRPC_VERBOSITY=DEBUG
+      - GRPC_TRACE=all
+    restart: always
+
+  mock2:
+    container_name: mock2
+    image: ciena/grpc-mock
+    command: /proto/mock.js
+    volumes:
+      - ./example:/proto
+    ports:
+      - "50052:50051"
+    environment:
+      - GRPC_VERBOSITY=DEBUG
+      - GRPC_TRACE=all
+    restart: always
